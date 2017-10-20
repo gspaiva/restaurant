@@ -1,15 +1,5 @@
-'use strict';
+import app from './app';
 
-const config = require('./config');
-const express = require('express');
-const app = express();
-
-const port = config.port;
-
-/* routes */
-const orderRoute = require('./routes/orderingRoutes');
-app.use('/order',orderRoute);
-
-app.listen(port,()=>{
-    console.log('listening on '+ port);
+app.listen(3000,()=>{
+    console.log('listening');
 });

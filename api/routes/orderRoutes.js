@@ -1,14 +1,15 @@
-'use strict';
-const express = require('express');
+import express from 'express';
+
+
 const router = express.Router();
 
 router.get('/',(req,res,next)=>{
     res.json({
-        response : 'get orders'
+        response : 'orders'
     })
 });
 router.post('/',(req,res,next)=>{
-    res.json({
+    res.json({ 
         response : 'create orders'
     })
 });  
