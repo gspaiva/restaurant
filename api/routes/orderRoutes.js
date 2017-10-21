@@ -1,16 +1,16 @@
 import express from 'express';
-
+import OrderController from '../controllers/OrderController';
 
 const router = express.Router();
 
 router.get('/',(req,res,next)=>{
     res.json({
-        response : 'orders'
+        response : 'get order'
     })
 });
 router.post('/',(req,res,next)=>{
     res.json({ 
-        response : 'create orders'
+        response : OrderController.postOrders(req)
     })
 });  
 router.put('/:id',(req,res,next)=>{
