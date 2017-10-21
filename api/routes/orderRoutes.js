@@ -4,9 +4,12 @@ import OrderController from '../controllers/OrderController';
 const router = express.Router();
 
 router.get('/',(req,res,next)=>{
-    res.json({
-        response : 'get order'
-    })
+    res.json([
+        {
+            id:1,
+            itens: ['fish','rice','potato']
+        }
+    ])
 });
 router.post('/',(req,res,next)=>{
     res.json({ 
