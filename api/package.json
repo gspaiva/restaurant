@@ -6,14 +6,17 @@
   "scripts": {
     "start": "babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test-integration" : "mocha --opts test/integration/mocha.opts test/integration/*.js"
+    "test-integration": "mocha --opts test/integration/mocha.opts test/integration/*.js"
   },
   "author": "Gabriel Paiva",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.3",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.19.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",

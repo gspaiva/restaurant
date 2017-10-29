@@ -1,4 +1,7 @@
 'use strict';
+import Sequelize from 'sequelize';
+
+
 
 function normalizePort(val){
     var port = parseInt(val,10);
@@ -10,6 +13,15 @@ function normalizePort(val){
     }
 }
 
+function setUpDatabaseConnection(){
+    const sequelize = new Sequelize('restaurant','root','',{
+        host: 'localhost',
+        dialect: 'mysql'
+    });
+    return sequelize;
+}
+
 module.exports = {
-    port: normalizePort(process.env.PORT || '3000')
+    port: normalizePort(process.env.PORT || '3000'),
+    database: setUpDatabaseConnection() 
 } 
