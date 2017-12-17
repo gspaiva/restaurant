@@ -3,23 +3,43 @@ import OrderController from '../controllers/OrderController';
 
 const router = express.Router();
 
+router.get('/:id',(req,res,next)=>{
+    OrderController.get(req.params.id).then(order =>{
+        res.json({
+            data: order
+        })
+    })
+});
 router.get('/',(req,res,next)=>{
-    res.json(OrderController.get())
+    OrderController.read().then(orders =>{
+        res.json({
+            data: orders
+        })
+    })
 });
 router.post('/',(req,res,next)=>{
-    res.json({ 
-        response : OrderController.postOrders(req)
-    })
+    OrderController.create(req.body).then(order =>
+        res.json({ 
+            data : order.toJSON() 
+        })
+    );
 });  
 router.put('/:id',(req,res,next)=>{
-    res.json({
-        response : 'edit order' + req.params.id
-    })
+    OrderController.edit(req.params.id,req.body).then(order =>{
+        res.json({
+            data: order   
+        })
+    })  
 });
 router.delete('/:id',(req,res,next)=>{
-    res.json({
-        response : 'delete order' + req.params.id
-    })
+    
+    OrderController.delete(req.params.id).then(deletedOrder => {
+        res.json({
+            success: true,
+            message : "The order with id " + req.params.id + " has been deleted"
+        })
+    }) 
+    
 });
 
 module.exports = router;

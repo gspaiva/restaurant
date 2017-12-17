@@ -1,13 +1,27 @@
+import OrderModel from '../models/orderModel';
+
 class OrderController{
     constructor(){
     }
-    get(){
+    get(id){
+        return OrderModel.get(id);
     }
-    create(){
+    read(){
+        return OrderModel.read();
     }
-    edit(id){
+    create(order){
+        /* validation */
+        /* pass to model to persist the data */
+         return OrderModel.create(order);
+    }
+    edit(id,order){
+        return OrderModel.edit(id,order);
     }
     delete(id){
+        return OrderModel.delete(id);
+    }
+    read(){
+        return OrderModel.read();
     }
 }
 module.exports =  new OrderController();
