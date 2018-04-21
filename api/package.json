@@ -13,10 +13,9 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "bluebird": "^3.5.1",
     "express": "^4.16.2",
-    "mongoose": "^4.12.3",
-    "mysql2": "^1.4.2",
-    "sequelize": "^4.19.0"
+    "mysql": "^2.15.0"
   },
   "devDependencies": {
     "body-parser": "^1.18.2",

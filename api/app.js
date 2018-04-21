@@ -1,22 +1,18 @@
 'use strict';
 import express from 'express';
 import orderRoute from './routes/orderRoutes';
-import config from './config';
+import tableRoute from './routes/tableRoutes';
+import productRoute from './routes/productRoutes';
+
 import bodyparser from 'body-parser';
 
 const app = express();
-
-config.database.authenticate()
-    .then(()=>{
-        console.log('connected');
-    })
-    .catch(err=>{
-        console.error('error to connect',err);
-    });
 
 /* body-parser config */
 app.use(bodyparser.json());
 /*Route config*/
 app.use('/order',orderRoute);
+app.use('/table',tableRoute);
+app.use('/product',productRoute);
 
 export default app;
