@@ -53,11 +53,36 @@ router.put('/:id',(req,res,next)=>{
 });
 router.delete('/:id',(req,res,next)=>{
     
-   
     
 });
+router.post('/add/product/',(req,res,next)=>{
+    orderController.addProductToOrder(req.body.id_order, req.body.id_product)
+    .then(result => {
+        res.json({
+            data: result
+        })
+    })
+    .catch(err => res.json({err : err}));
+});
 
+router.put('/close/:id',(req,res,next)=>{
+    orderController.closeOrder(req.params.id)
+    .then(result => {
+        res.json({
+            data : result
+        })
+    })
+    .catch(err => res.json({err : err}));
+});
 
-
+router.get('/table/:id',(req,res,next)=>{
+    orderController.findOrderByIdTable(req.params.id)
+    .then(result => {
+        res.json({
+            data : result
+        })
+    })
+    .catch(err => res.json({err : err}));
+});
 
 module.exports = router;
